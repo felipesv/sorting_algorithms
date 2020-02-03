@@ -7,10 +7,12 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *crn = *list;
+	listint_t *crn;
 
-	if (list == NULL || *list == NULL)
+	if (list == NULL || *list == NULL || crn->next == NULL)
 		return;
+
+	crn = *list;
 
 	while (crn != NULL)
 	{
@@ -35,15 +37,15 @@ void insertion_sort_list(listint_t **list)
 void swap(listint_t *first, listint_t *second, listint_t **head)
 {
 	first->next = second->next;
+	if (first->prev != NULL)
+		first->prev->next = second;
+	second->prev = first->prev;
+	first->prev = second;
 	if (second->next != NULL)
 		second->next->prev = first;
 	second->next = first;
-	second->prev = first->prev;
-	if (first->prev != NULL)
-		first->prev->next = second;
-	first->prev = second;
 	if (second->prev == NULL)
-		*head = second;
+		(*head) = second;
 	print_list(*head);
 }
 
