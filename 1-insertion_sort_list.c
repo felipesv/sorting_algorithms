@@ -9,17 +9,13 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *crn = *list;
 
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL)
 		return;
 
 	while (crn != NULL)
 	{
-		if (crn->next != NULL && crn->n > crn->next->n)
-		{
-			swap(crn, crn->next, list);
-			swap_rever(crn->prev, list);
-			crn = crn->prev;
-		}
+		while (crn->prev != NULL && crn->n < crn->prev->n)
+			swap(crn->prev, crn, list);
 		crn = crn->next;
 	}
 }
@@ -45,24 +41,4 @@ void swap(listint_t *first, listint_t *second, listint_t **head)
 	if (second->prev == NULL)
 		(*head) = second;
 	print_list(*head);
-}
-
-/**
- * swap_rever - check new node swap with others
- * @crn: current
- * @head: head
- *
- * Return: is a void
- */
-void swap_rever(listint_t *crn, listint_t **head)
-{
-	while (crn != NULL && crn->prev != NULL)
-	{
-		if (crn->n < crn->prev->n)
-		{
-			swap(crn->prev, crn, head);
-			crn = crn->next;
-		}
-		crn = crn->prev;
-	}
 }
