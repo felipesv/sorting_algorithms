@@ -25,10 +25,11 @@ void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
-
+void quick_sort(int *array, size_t size);
 
 void swap(listint_t *first, listint_t *second, listint_t **head);
 void swap_rever(listint_t *crn, listint_t **head);
+int quick_sort2(int *array, size_t size, size_t pos1, size_t pos2);
 
 
 #endif /* SORT_H */
