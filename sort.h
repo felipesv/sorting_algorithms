@@ -27,10 +27,11 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
 
 void swap(listint_t *first, listint_t *second, listint_t **head);
 void swap_rever(listint_t *crn, listint_t **head);
-int quick_sort2(int *array, size_t size, size_t pos1, size_t pos2);
+void quick_sort2(int *array, int size, int pos1, int pos2);
 
 
 #endif /* SORT_H */
