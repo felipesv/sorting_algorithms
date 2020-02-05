@@ -7,7 +7,7 @@
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *crn = NULL, *tmp = NULL;
+	listint_t *crn = NULL;
 	int lim1 = 0, lim2 = 0, cnt = 0, dir = 0;
 
 	if (list == NULL || *list == NULL)
